@@ -71,8 +71,14 @@
 
 \raggedright
 \footnotesize
+
+
+\begin{center}
+     \Large{\textbf{ My Everyday Cheat Sheet}} \\
+\end{center}
+
 %uncomment when the cheat sheet grows
-%\begin{multicols}{1}
+\begin{multicols}{1}
 
 
 % multicol parameters
@@ -83,9 +89,6 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
-\begin{center}
-     \Large{\textbf{ My Everyday Cheat Sheet}} \\
-\end{center}
 
 \section{VIM Startups}
 \begin{tabular}{@{}ll@{}}
@@ -110,7 +113,7 @@
 
 
 
-\section{i3  Display Hacks}
+\section{i3 display hacks}
 \newlength{\MyLen}
 \settowidth{\MyLen}{\texttt{xrandr --output VGA1 --auto --right-of LVDS1} \ }
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -120,6 +123,14 @@
 \end{tabular}
 
 
+\section{i3 quick and dirty}
+\begin{tabular}{@{}ll@{}}
+\texttt{MOD-f} & enter fullscreen mode\\
+\texttt{MOD-d} & access dmenu\\
+\texttt{MOD-s} & stacked layout\\
+\texttt{MOD-a} & focus parent\\
+\texttt{MOD-e} & splith/splitv it toggles\\
+\end{tabular}
 
 \section{Ctags}
 \settowidth{\MyLen}{\texttt{:set tags=tags} }
@@ -132,13 +143,17 @@
 
 
 
-\section{Python Command line hacks}
+\section{Python Commandline hacks}
 \settowidth{\MyLen}{\texttt{python -m SimpleHTTPServer} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \texttt{python -m SimpleHTTPServer} & creates a webserver on port 8000 ./ as root dir  \\
 \end{tabular}
-%\end{multicols}
+\end{multicols}
+
+
+
+\begin{center}
 
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
@@ -146,6 +161,8 @@
 zaxklone meetmycheats
 
 \href{https://github.com/zaxklone/meetmycheats}{https://github.com/zaxklone/meetmycheats}
+\end{center}
+
 
 
 \end{document}
