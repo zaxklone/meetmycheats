@@ -1,0 +1,148 @@
+\documentclass[10pt,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+% To make this come out properly in landscape mode, do one of the following
+% 1.
+%  pdflatex latexsheet.tex
+%
+% 2.
+%  latex latexsheet.tex
+%  dvips -P pdf  -t landscape latexsheet.dvi
+%  ps2pdf latexsheet.ps
+
+%shout out Winston Chang for the guidance 
+%http://www.stdout.org/∼winston/latex/
+
+% To Do:
+% \listoffigures \listoftables
+% \setcounter{secnumdepth}{0}
+
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+	{ \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+
+% Turn off header and footer
+\pagestyle{empty}
+ 
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+\raggedright
+\footnotesize
+%uncomment when the cheat sheet grows
+%\begin{multicols}{1}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{\textbf{ My Everyday Cheat Sheet}} \\
+\end{center}
+
+\section{VIM Startups}
+\begin{tabular}{@{}ll@{}}
+\texttt{vim -p[N]}    & \colorbox{Aquamarine}{Open N tab pages.} \\
+\texttt{vim } \textit{file1 file2}  & Opens up files sequentially \\
+\texttt{vim  +} \textit{file}  & Open file at last line\\
+\texttt{vim  +n } \textit{file}  & Open file at line number n\\
+\texttt{vim  +/pattern} \textit{file}  & Open file at \texttt{pattern}\\
+\texttt{vim  -t } tag  & look up tag and start editing at its defintion\\
+\texttt{view}  \textit{file}  & Open up \textit{file} in read-only mode\\
+\end{tabular}
+
+
+\section{quick and dirty git}
+\begin{tabular}{@{}ll@{}}
+\texttt{git clone } \textit{repo} & clones repo in cur dir\\
+\texttt{git init }  & initializes a repo in current dir\\
+\end{tabular}
+
+
+
+\section{i3  Display Hacks}
+\newlength{\MyLen}
+\settowidth{\MyLen}{\texttt{xrandr --output VGA1 --auto --right-of LVDS1} \ }
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{ \linewidth-\the\MyLen}@{}}
+\texttt{xrandr --output VGA1 --auto --right-of LVDS1} & extend 2nd display to right of 1st display \\
+\texttt{xrandr --output VGA1 --auto --left-of LVDS1} & extend 2nd display to left of 1st display \\
+\end{tabular}
+
+
+
+\section{Ctags}
+\settowidth{\MyLen}{\texttt{:set tags=tags} }
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+%\begin{tabular}{@{}ll@{}}
+\texttt{ctags -R}  &  create tags file in current directory \\
+\texttt{:set tags=tags}   &  Set tags of tag file in current directory in \textit{VIM} \\
+\end{tabular}
+
+
+
+\section{Python Command line hacks}
+\settowidth{\MyLen}{\texttt{python -m SimpleHTTPServer} }
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+\texttt{python -m SimpleHTTPServer} & creates a webserver on port 8000 ./ as root  \\
+\end{tabular}
+%\end{multicols}
+
+\rule{0.3\linewidth}{0.25pt}
+\scriptsize
+
+zaxklone meetmycheats
+
+\href{https://github.com/zaxklone/meetmycheats}{https://github.com/zaxklone/meetmycheats}
+
+
+\end{document}
